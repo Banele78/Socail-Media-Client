@@ -9,7 +9,7 @@ function ChangePassword() {
     let history=useHistory();
 
     const changePassword=()=>{
-        axios.put("http://localhost:3001/auth/changepassword", {
+        axios.put("https://social-media-api-b-e76829d56236.herokuapp.com/auth/changepassword", {
             oldPassword: oldPassword,
              newPassword:newPassword,
             },{

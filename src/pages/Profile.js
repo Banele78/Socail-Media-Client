@@ -12,11 +12,11 @@ function Profile() {
     const {authState} =useContext(AuthContext);
   
     useEffect(()=>{
-        axios.get(`http://localhost:3001/auth/basicInfo/${id}`).then((response)=>{
+        axios.get(`https://social-media-api-b-e76829d56236.herokuapp.com/auth/basicInfo/${id}`).then((response)=>{
               setUsername(response.data.username);
         });
 
-        axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response)=>{
+        axios.get(`https://social-media-api-b-e76829d56236.herokuapp.com/posts/byuserId/${id}`).then((response)=>{
             setListOfPosts(response.data);
         })
     },[])

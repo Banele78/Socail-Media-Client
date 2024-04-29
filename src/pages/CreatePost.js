@@ -32,7 +32,7 @@ function CreatePost() {
 
     const onSubmit =(data)=>{
 
-       axios.post("http://localhost:3001/posts", data, {headers:
+       axios.post("https://social-media-api-b-e76829d56236.herokuapp.com/posts", data, {headers:
        {accessToken: localStorage.getItem("accessToken")}}
       ).then((response)=>{
         history.push('/');

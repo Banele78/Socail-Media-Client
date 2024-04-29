@@ -18,7 +18,7 @@ function Home() {
     if (!localStorage.getItem("accessToken")){
        history.push("/login");
     }else{
-    axios.get("http://localhost:3001/posts", {headers:
+    axios.get("https://social-media-api-b-e76829d56236.herokuapp.com/posts", {headers:
     {accessToken: localStorage.getItem("accessToken")}
   }).then((response)=>{
      
@@ -38,7 +38,7 @@ function Home() {
   
 
   const likeAPost =(postId)=>{
-    axios.post("http://localhost:3001/likes", {PostId: postId}, 
+    axios.post("https://social-media-api-b-e76829d56236.herokuapp.com/likes", {PostId: postId}, 
     {headers:
       {accessToken: localStorage.getItem("accessToken")}
     }

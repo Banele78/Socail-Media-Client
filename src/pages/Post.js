@@ -12,17 +12,17 @@ function Post() {
     let history=useHistory();
 
     useEffect(()=>{
-        axios.get(`http://localhost:3001/posts/byId/${id}`).then((response)=>{
+        axios.get(`https://social-media-api-b-e76829d56236.herokuapp.com/posts/byId/${id}`).then((response)=>{
             setPostObject(response.data);
           });
 
-          axios.get(`http://localhost:3001/comments/${id}`).then((response)=>{
+          axios.get(`https://social-media-api-b-e76829d56236.herokuapp.com/comments/${id}`).then((response)=>{
          setComments(response.data);
         });
     },[]);
 
     const addComment=()=>{
-      axios.post(`http://localhost:3001/comments`, {
+      axios.post(`https://social-media-api-b-e76829d56236.herokuapp.com/comments`, {
         CommentBody:newComment,
          PostId:id},{
            headers: {
@@ -45,7 +45,7 @@ function Post() {
 
 const deleteComment= (id)=>{
 
-  axios.delete(`http://localhost:3001/comments/${id}`, 
+  axios.delete(`https://social-media-api-b-e76829d56236.herokuapp.com/comments/${id}`, 
   {headers:{accessToken: localStorage.getItem("accessToken")}
   }).then(()=>{
    setComments(comments.filter((val)=>{
@@ -57,7 +57,7 @@ const deleteComment= (id)=>{
 };
 
 const deletePost=(id)=>{
-  axios.delete(`http://localhost:3001/posts/${id}`, 
+  axios.delete(`https://social-media-api-b-e76829d56236.herokuapp.com/posts/${id}`, 
   {headers:{accessToken: localStorage.getItem("accessToken")}
   } ).then(()=>{
    history.push("/");
@@ -68,7 +68,7 @@ const deletePost=(id)=>{
 const editpost=(option)=>{
   if (option ==="title"){
      let newTitle = prompt("Enter new Title");
-     axios.put(`http://localhost:3001/posts/title`, {
+     axios.put(`https://social-media-api-b-e76829d56236.herokuapp.com/posts/title`, {
       newTitle: newTitle,
        id:id,
       },  {headers:{accessToken: localStorage.getItem("accessToken")}
@@ -79,7 +79,7 @@ const editpost=(option)=>{
 
   }else{
    let newPostText= prompt("enter new Text");
-   axios.put(`http://localhost:3001/posts/PostText`, {
+   axios.put(`https://social-media-api-b-e76829d56236.herokuapp.com/posts/PostText`, {
     newText: newPostText,
      id:id,
     },  {headers:{accessToken: localStorage.getItem("accessToken")}
