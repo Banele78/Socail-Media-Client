@@ -49,7 +49,7 @@ function App() {
       id: 0,
       status:false,
     });
-    window.location.href = "/login";
+    window.location.replace("/login");
   }
   return (
     <div className="App">
